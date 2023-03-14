@@ -59,9 +59,13 @@ public class ArrayTasks {
      */
     public int findIndexOfNumber(int[] arr, int number) {
         int result = -1;
+        int index = 1;
         for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == 0 && number != 0){
+                index--;
+            }
             if (arr[i] == number) {
-                result = i + 1;
+                result = i + index;
                 break;
             }
         }
