@@ -7,6 +7,7 @@ package com.epam.mjc.stage0;
  * The usage of any additional packages (such as java.util.*) is forbidden.
  */
 public class ArrayTasks {
+
     /**
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
@@ -130,65 +131,18 @@ public class ArrayTasks {
      */
     public int[][] sortRaggedArray(int[][] arr) {
         int outerArr = arr[0].length, innerArr = arr[1].length;
+        int [] tmp1 = sort(arr[0]);
+        int [] tmp2 = sort(arr[1]);
 
-        int tmp;
-        for (int i = 1; i < arr[0].length; i++) {
-            for (int j = arr[0].length - 1; j >= i; j--) {
-                if (arr[0][j - 1] > arr[0][j]) {
-                    tmp = arr[0][j - 1];
-                    arr[0][j - 1] = arr[0][j];
-                    arr[0][j] = tmp;
-                }
-            }
-        }
-
-        for (int i = 1; i < arr[1].length; i++) {
-            for (int j = arr[1].length - 1; j >= i; j--) {
-                if (arr[1][j - 1] > arr[1][j]) {
-                    tmp = arr[1][j - 1];
-                    arr[1][j - 1] = arr[1][j];
-                    arr[1][j] = tmp;
-                }
-            }
-        }
-
-        int newOuterArr, newInnerArr;
-        int[][] newArr;
         if (outerArr > innerArr) {
-            newInnerArr = outerArr;
-            newOuterArr = innerArr;
-
-            newArr = new int[arr.length][];
-            newArr[0] = new int[newOuterArr];
-            newArr[1] = new int[newInnerArr];
-
-            for (int i = 0; i < arr[0].length; i++) {
-                newArr[1][i] = arr[0][i];
-            }
-            for (int j = 0; j < arr[1].length; j++) {
-                newArr[0][j] = arr[1][j];
-            }
-
-            //sort(newArr[0]);
-            //sort(newArr[1]);
-        } else {
-            newArr = new int[arr.length][];
-            newArr[0] = new int[outerArr];
-            newArr[1] = new int[innerArr];
-
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = 0; j < arr[i].length; j++) {
-                    newArr[i][j] = arr[i][j];
-                }
-            }
-            //sort(newArr[0]);
-            //sort(newArr[1]);
+            arr[0] = tmp2;
+            arr[1] = tmp1;
+            return arr;
         }
-        System.out.println("LENGTH " + newArr.length);
-        return newArr;
+        return arr;
     }
 
-    public void sort(int[] arr) {
+    public int [] sort(int[] arr) {
         int tmp;
         for (int i = 1; i < arr.length; i++) {
             for (int j = arr.length - 1; j >= i; j--) {
@@ -199,5 +153,6 @@ public class ArrayTasks {
                 }
             }
         }
+        return arr;
     }
 }
