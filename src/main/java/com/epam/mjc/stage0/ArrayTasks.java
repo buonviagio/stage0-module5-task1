@@ -1,12 +1,13 @@
 package com.epam.mjc.stage0;
 
+import java.util.Arrays;
+
 /**
  * Here are the tasks for working with the arrays.
  * <p>
  * The usage of any additional packages (such as java.util.*) is forbidden.
  */
 public class ArrayTasks {
-
     /**
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
@@ -158,7 +159,7 @@ public class ArrayTasks {
             newInnerArr = outerArr;
             newOuterArr = innerArr;
 
-            newArr = new int[2][];
+            newArr = new int[arr.length][];
             newArr[0] = new int[newOuterArr];
             newArr[1] = new int[newInnerArr];
 
@@ -172,7 +173,7 @@ public class ArrayTasks {
             //sort(newArr[0]);
             //sort(newArr[1]);
         } else {
-            newArr = new int[2][];
+            newArr = new int[arr.length][];
             newArr[0] = new int[outerArr];
             newArr[1] = new int[innerArr];
 
@@ -184,6 +185,7 @@ public class ArrayTasks {
             //sort(newArr[0]);
             //sort(newArr[1]);
         }
+        System.out.println("LENGTH " + newArr.length);
         return newArr;
     }
 
